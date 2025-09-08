@@ -64,12 +64,13 @@ export default function Home() {
   return (
     <main className="h-screen bg-white pt-20">
       <h1 className="text-3xl font-bold mt-2">Revisa los ultimos posts!</h1>
-      <section className="flex flex-wrap justify-center items-center gap-5 p-10 ">
+      <section className="flex flex-wrap justify-center items-center gap-4 p-10 ">
         {posts.map((post) => {
           if (post.published) {
             return (
               <Post
                 key={post.id}
+                id={post.id}
                 title={post.title}
                 description={post.excerpt}
                 content={post.content}

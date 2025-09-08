@@ -8,20 +8,23 @@ import {
 } from "@/components/ui/card";
 import { format, parseISO } from "date-fns";
 import { es } from "date-fns/locale";
+import Link from "next/link";
 
 const Post = ({
+  id,
   title,
   description,
   content,
   created,
 }: {
+  id: string;
   title: string;
   description: string;
   content: string;
   created: string;
 }) => {
   return (
-    <Card className="w-80 h-80 flex justify-center border-gray-300 hover:scale-110 transition transform">
+    <Card className="w-90 h-90 flex justify-center border-gray-300 hover:scale-105 transition transform">
       <CardHeader>
         <CardTitle>{title}</CardTitle>
         <CardDescription>{description}</CardDescription>
@@ -34,9 +37,9 @@ const Post = ({
           Fecha de publicación:
           {format(parseISO(created), " dd 'de' MMMM 'de' yyyy", { locale: es })}
         </p>
-        <a href="#" className="text-blue-500 hover:underline">
+        <Link href={`/posts/${id}`} className="text-blue-500 hover:underline">
           Leer más
-        </a>
+        </Link>
       </CardFooter>
     </Card>
   );
