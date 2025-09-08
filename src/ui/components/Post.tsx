@@ -21,7 +21,7 @@ const Post = ({
   created: string;
 }) => {
   return (
-    <Card className="w-80 h-80 flex justify-center">
+    <Card className="w-80 h-80 flex justify-center border-gray-300 hover:scale-110 transition transform">
       <CardHeader>
         <CardTitle>{title}</CardTitle>
         <CardDescription>{description}</CardDescription>
