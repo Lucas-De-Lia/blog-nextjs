@@ -13,21 +13,18 @@ import Link from "next/link";
 const Post = ({
   id,
   title,
-  description,
   content,
   created,
 }: {
   id: string;
   title: string;
-  description: string;
   content: string;
-  created: string;
+  created: Date;
 }) => {
   return (
-    <Card className="w-90 h-90 flex justify-center border-gray-300 hover:scale-105 transition transform">
+    <Card className="w-70 h-70 flex justify-center border-indigo-700 hover:scale-105 transition transform">
       <CardHeader>
-        <CardTitle>{title}</CardTitle>
-        <CardDescription>{description}</CardDescription>
+        <CardTitle className="text-lg font-bold">{title}</CardTitle>
       </CardHeader>
       <CardContent>
         <p>{content}</p>
@@ -35,9 +32,9 @@ const Post = ({
       <CardFooter className="flex flex-col items-start">
         <p>
           Fecha de publicación:
-          {format(parseISO(created), " dd 'de' MMMM 'de' yyyy", { locale: es })}
+          {format(created, " dd 'de' MMMM 'de' yyyy", { locale: es })}
         </p>
-        <Link href={`/posts/${id}`} className="text-blue-500 hover:underline">
+        <Link href={`/posts/${id}`} className="text-indigo-700 hover:underline">
           Leer más
         </Link>
       </CardFooter>
